@@ -1,0 +1,54 @@
+﻿@model ExamenFinal_Grupo08.Models.Ordenes
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Orden</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <h4>Actualizar Información de la Orden</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.ID_Orden, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.ID_Orden, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.ID_Orden, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.ID_Mesa, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.ID_Mesa, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ID_Mesa, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "form-label" })
+            @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

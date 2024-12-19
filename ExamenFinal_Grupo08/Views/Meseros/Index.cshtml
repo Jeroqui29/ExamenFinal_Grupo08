@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ExamenFinal_Grupo08.Models.Meseros>
+
+@{
+    ViewBag.Title = "Gestion de Usuarios";
+}
+
+<h2>Gestion de Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Create Nuevo Mesero", "Create", "", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID_Mesero)</th>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ID_Mesero)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Usuario)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                <td>
+
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID_Mesero, @class = "btn btn-primary btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Mesero, @class = "btn btn-danger btn-sm", onclick = "return confirm('¿Está seguro de eliminar este mesero?')" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

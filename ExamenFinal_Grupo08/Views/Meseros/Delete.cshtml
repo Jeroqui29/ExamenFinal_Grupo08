@@ -1,0 +1,31 @@
+﻿@model ExamenFinal_Grupo08.Models.Meseros
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Mesero</h2>
+<h3>¿Está seguro de que desea eliminar este mesero?</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Mesero</h4>
+        <dl class="row">
+            <dt class="col-sm-3">ID de Mesero</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.ID_Mesero)</dd>
+
+            <dt class="col-sm-3">Nombre</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>

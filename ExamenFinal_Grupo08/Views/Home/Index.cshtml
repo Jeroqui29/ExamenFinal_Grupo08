@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Bienvenido a la Gestión de TAGLIATORE</h1>
+        <p class="lead">Seccion de Gestion</p>
+    </section>
+
+    <div class="row">
+        <section class="col-md-3">
+            <a href="@Url.Action("Index", "Clientes")" class="btn btn-primary btn-lg btn-block">Gestión de Clientes</a>
+        </section>
+
+
+        <section class="col-md-3">
+            <a href="@Url.Action("Index", "Meseros")" class="btn btn-primary btn-lg btn-block">Gestión de Meseros</a>
+        </section>
+
+
+        <section class="col-md-3">
+            <a href="@Url.Action("Index", "Ordenes")" class="btn btn-primary btn-lg btn-block">Gestión de Órdenes</a>
+        </section>
+
+
+        <section class="col-md-3">
+            <a href="@Url.Action("Index", "Platillos")" class="btn btn-primary btn-lg btn-block">Gestión de Platillos</a>
+        </section>
+    </div>
+</main>

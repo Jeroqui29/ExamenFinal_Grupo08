@@ -1,0 +1,38 @@
+﻿@model ExamenFinal_Grupo08.Models.Ordenes
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Eliminar Orden</h2>
+<h3>¿Está seguro de que desea eliminar esta orden?</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles de la Orden</h4>
+        <dl class="row">
+            <dt class="col-sm-3">ID de Orden</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.ID_Orden)</dd>
+
+            <dt class="col-sm-3">ID de Mesa</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.ID_Mesa)</dd>
+
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+
+            <dt class="col-sm-3">Fecha</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Fecha)</dd>
+        </dl>
+
+        <div class="d-flex justify-content-between">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>

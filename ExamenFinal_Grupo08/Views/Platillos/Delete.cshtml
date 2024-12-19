@@ -1,0 +1,49 @@
+﻿@model ExamenFinal_Grupo08.Models.Platillos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Platillo</h2>
+<h3>¿Está seguro de que desea eliminar este platillo?</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Platillo</h4>
+        <dl class="row">
+            <dt class="col-sm-3">ID de Platillo</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.ID_Platillo)</dd>
+
+            <dt class="col-sm-3">Nombre</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+            <dt class="col-sm-3">Ingredientes</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Ingredientes)</dd>
+
+            <dt class="col-sm-3">Precio</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Precio)</dd>
+
+            <dt class="col-sm-3">Imagen</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.ImagenURL))
+                {
+                    <img src="@Model.ImagenURL" alt="Imagen del Platillo" class="img-fluid" />
+                }
+                else
+                {
+                    <span>No disponible</span>
+                }
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+
